@@ -8,14 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="wwwroot\TemplatesShared\**" />
-    <Content Remove="wwwroot\TemplatesShared\**" />
-    <EmbeddedResource Remove="wwwroot\TemplatesShared\**" />
-    <None Remove="wwwroot\TemplatesShared\**" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -467,6 +467,7 @@ namespace TemplatesShared {
                 // set the location to the .template.config folder
                 try {
                     var findResult = DoThesePathsExistOnDisk(templateFolder, pathsFound);
+#pragma warning disable CS0472 // The result of the expression is always the same since a value of this type is never equal to 'null'
                     if (findResult.Exists != null && findResult.MissingPaths.Count > 0) {
                         foreach (var missingPath in findResult.MissingPaths) {
                             analyzeResult.Issues.Add(new FoundIssue {
@@ -476,7 +477,8 @@ namespace TemplatesShared {
                             _reporter.WriteLine($"    WARNING: Missing path: '{missingPath}'");
                         }
                     }
-                    // return !findResult.Item1;
+#pragma warning restore CS0472 // The result of the expression is always the same since a value of this type is never equal to 'null'
+                              // return !findResult.Item1;
                 }
                 catch(Exception ex) {
                     analyzeResult.Issues.Add(new FoundIssue {
@@ -667,6 +669,7 @@ namespace TemplatesShared {
         public string GetErrorMessage() {
             return GetErrorMessage(null);
         }
+#pragma warning disable CS8524 // The switch expression does not handle some values of its input type (it is not exhaustive) involving an unnamed enum value.
         public string GetErrorMessage(string currentValue) =>
             ErrorMessage != null ?
                 string.Format(ErrorMessage, currentValue) :
@@ -677,6 +680,7 @@ namespace TemplatesShared {
                     JTokenValidationType.Custom => $"{Query} failed. Current value: '{currentValue}'",
                     // 0 => throw new ArgumentException($"Unknown value for JTokenValidationType: {Expectation}")
                 };
+#pragma warning restore CS8524 // The switch expression does not handle some values of its input type (it is not exhaustive) involving an unnamed enum value.
     }
 
     public enum ErrorWarningType {

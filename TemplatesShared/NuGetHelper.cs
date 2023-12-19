@@ -212,7 +212,9 @@ namespace TemplatesShared {
                     throw new NuGetQueryException($"numRetries ({numRetries}) exceed without getting a result for '{uri}'.\n{ex}");
                 }
 
+#pragma warning disable CS0162 // Unreachable code detected
                 numRuns++;
+#pragma warning restore CS0162 // Unreachable code detected
             } while (numRuns <= numRetries);
 
             throw new NuGetQueryException($"numRetries ({numRetries}) exceed without getting a result for '{uri}'");

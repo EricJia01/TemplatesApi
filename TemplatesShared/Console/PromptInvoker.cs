@@ -155,9 +155,11 @@ namespace TemplatesShared {
 
                 return found;
             }
+#pragma warning disable CS8321 // Local function is declared but never used
             void ResetAllOptions(List<UserOption> userOptions) {
                 userOptions.ForEach((uo) => uo.IsSelected = false);
             }
+#pragma warning restore CS8321 // Local function is declared but never used
             void RedrawOptionValues(Dictionary<(int CursorLeft, int CursorRight), UserOption>cursorOptionMap) {
                 var originalCursorPosn = _console.GetCursorPosition();
                 foreach(var posn in cursorOptionMap.Keys) {                    

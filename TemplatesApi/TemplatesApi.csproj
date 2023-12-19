@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>annotations</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\TemplatesShared\**" />
+    <Content Remove="wwwroot\TemplatesShared\**" />
+    <EmbeddedResource Remove="wwwroot\TemplatesShared\**" />
+    <None Remove="wwwroot\TemplatesShared\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TemplatesShared\TemplatesShared.csproj" />
+  </ItemGroup>
+
+</Project>
